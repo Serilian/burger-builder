@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './BurgerBuilder.scss'
 import Burger from '../../components/Burger/Burger';
+import BuildControls from '../../components/Burger/BuildControls/BuildControls'
 
 
 class BurgerBuilder extends Component {
@@ -9,10 +10,10 @@ class BurgerBuilder extends Component {
         super(props);
         this.state = {
             ingredients: {
-                salad: 1,
+                salad: 0,
                 bacon: 1,
-                cheese: 2,
-                meat: 2
+                cheese: 0,
+                meat: 0
             }
         };
     }
@@ -22,7 +23,7 @@ class BurgerBuilder extends Component {
         return (
             <>
                 <Burger ingredients={this.state.ingredients}/>
-                <div>Build Controls</div>
+                <BuildControls/>
             </>
         );
     }
