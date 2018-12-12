@@ -22,7 +22,8 @@ class BurgerBuilder extends Component {
                 cheese: 0,
                 meat: 0
             },
-            totalPrice: 4
+            totalPrice: 4,
+            purchasable: false
         };
     }
 
@@ -35,15 +36,18 @@ class BurgerBuilder extends Component {
         const oldPrice = this.state.totalPrice;
         const newPrice = oldPrice + priceAddition;
 
+
+
         this.setState({
             ingredients: updatedIngredients,
             totalPrice: newPrice
-        })
+        });
+        this.updatePurchaseState(updatedIngredients);
     };
 
     removeIngredientHandler = (type) => {
         const oldCount = this.state.ingredients[type];
-        if(oldCount <= 0) {
+        if (oldCount <= 0) {
             return;
         }
 
@@ -57,26 +61,46 @@ class BurgerBuilder extends Component {
         this.setState({
             ingredients: updatedIngredients,
             totalPrice: newPrice
-        })
+        });
+        this.updatePurchaseState(updatedIngredients);
     };
+
+    updatePurchaseState(updatedIngredients) {
+        const ingredients = {...updatedIngredients};
+        const sum = Object.keys(ingredients).map(
+            (key) => {
+                return ingredients[key];
+            }
+        )
+            .reduce((sum, el)=>{
+                return sum+el;
+            },0);
+
+        this.setState({purchasable: sum > 0})
+
+    };
+
 
     render() {
 
         const disabledInfo = {
-          ...this.state.ingredients
+            ...this.state.ingredients
         };
 
         for (let key in disabledInfo) {
             disabledInfo[key] = disabledInfo[key] <= 0;
         }
 
+
         return (
             <>
                 <Burger ingredients={this.state.ingredients}/>
                 <BuildControls
+                    totalPrice={this.state.totalPrice}
                     ingredientAdded={this.addIngredientHandler}
                     ingredientRemoved={this.removeIngredientHandler}
                     disabled={disabledInfo}
+                    purchasable={this.state.purchasable}
                 />
             </>
         );
