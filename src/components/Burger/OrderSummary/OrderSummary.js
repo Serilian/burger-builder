@@ -20,7 +20,7 @@ const orderSummary = (props) => {
             <h4>Proceed to checkout ?</h4>
             <div className="button-list">
             <button className="Success">Yes</button>
-            <button className="Danger">Go back</button>
+            <button className="Danger" onClick={props.backClicked}>Go back</button>
             </div>
         </div>
     )
