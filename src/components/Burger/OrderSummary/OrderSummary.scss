@@ -1,0 +1,57 @@
+.order-summary {
+
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+
+  h3 {
+    text-align: center;
+  }
+
+  h4 {
+    text-align: center;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  &__list {
+    list-style: none;
+    margin-left: 35px;
+  }
+
+  .ingredient-label {
+    text-transform: capitalize;
+    font-weight: bold;
+  }
+
+  .button-list {
+    transform: translateX(50%);
+    display: flex;
+    flex-flow: row;
+    width: 50%;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      background-color: transparent;
+      border: none;
+      color: white;
+      outline: none;
+      cursor: pointer;
+      font: inherit;
+      padding: 10px;
+      margin: 10px;
+      font-weight: bold;
+
+
+      &.Success {
+        color: #5C9210;
+      }
+      &.Danger {
+        color: #944317;
+      }
+    }
+  }
+}
