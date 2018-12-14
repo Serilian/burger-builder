@@ -16,10 +16,10 @@ const orderSummary = (props) => {
             <ul className="order-summary__list">
                 {ingredientSummary}
             </ul>
-            <h4>Total price: {props.totalPrice} USD</h4>
+            <h4>Total price: {props.totalPrice.toFixed(2)} USD</h4>
             <h4>Proceed to checkout ?</h4>
             <div className="button-list">
-            <button className="Success">Yes</button>
+            <button className="Success" onClick={props.continueClicked}>Yes</button>
             <button className="Danger" onClick={props.backClicked}>Go back</button>
             </div>
         </div>
