@@ -16,8 +16,10 @@
   }
 
   .logo {
+    transform: translateX(70px);
     height: 11%;
     width: 20%;
+    margin-bottom: 32px;
   }
 
 }
@@ -27,6 +29,6 @@
   transform: translateX(0);
 }
 
-.close {
+.closed {
   transform: translateX(-100%);
 }
