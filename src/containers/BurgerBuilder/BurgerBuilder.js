@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './BurgerBuilder.scss'
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls'
@@ -32,7 +32,7 @@ class BurgerBuilder extends Component {
     addIngredientHandler = (type) => {
         const oldCount = this.state.ingredients[type];
         const updatedCount = oldCount + 1;
-        const updatedIngredients = {...this.state.ingredients};
+        const updatedIngredients = { ...this.state.ingredients };
         updatedIngredients[type] = updatedCount;
         const priceAddition = INGREDIENT_PRICES[type];
         const oldPrice = this.state.totalPrice;
@@ -53,7 +53,7 @@ class BurgerBuilder extends Component {
         }
 
         const updatedCount = oldCount - 1;
-        const updatedIngredients = {...this.state.ingredients};
+        const updatedIngredients = { ...this.state.ingredients };
         updatedIngredients[type] = updatedCount;
         const priceDeduction = INGREDIENT_PRICES[type];
         const oldPrice = this.state.totalPrice;
@@ -67,7 +67,7 @@ class BurgerBuilder extends Component {
     };
 
     updatePurchaseState = (updatedIngredients) => {
-        const ingredients = {...updatedIngredients};
+        const ingredients = { ...updatedIngredients };
         const sum = Object.keys(ingredients).map(
             (key) => {
                 return ingredients[key];
@@ -77,16 +77,16 @@ class BurgerBuilder extends Component {
                 return sum + el;
             }, 0);
 
-        this.setState({purchasable: sum > 0})
+        this.setState({ purchasable: sum > 0 })
 
     };
 
     purchaseHandler = () => {
-        this.setState({purchasing: true});
+        this.setState({ purchasing: true });
     };
 
     purchaseCancelHandler = () => {
-        this.setState({purchasing: false})
+        this.setState({ purchasing: false })
     };
 
     purchaseContinueHandler = () => {
@@ -107,16 +107,16 @@ class BurgerBuilder extends Component {
         return (
             <>
                 <Modal show={this.state.purchasing}
-                       modalClosed={this.purchaseCancelHandler}
+                    modalClosed={this.purchaseCancelHandler}
                 >
 
                     <OrderSummary
-                        continueClicked = {this.purchaseContinueHandler}
+                        continueClicked={this.purchaseContinueHandler}
                         backClicked={this.purchaseCancelHandler}
                         totalPrice={this.state.totalPrice}
-                        ingredients={this.state.ingredients}/>
+                        ingredients={this.state.ingredients} />
                 </Modal>
-                <Burger ingredients={this.state.ingredients}/>
+                <Burger ingredients={this.state.ingredients} />
                 <BuildControls
                     totalPrice={this.state.totalPrice}
                     ingredientAdded={this.addIngredientHandler}
