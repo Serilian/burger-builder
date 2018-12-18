@@ -96,7 +96,7 @@ class BurgerBuilder extends Component {
         const {totalPrice} = this.state;
         const order = {
             ingredients: ingredients,
-            price: totalPrice.toFixed(2),
+            price: totalPrice.toFixed(3),
             customer: {
                 name: 'Filip',
                 address: 'Test Address',
