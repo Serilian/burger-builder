@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import './OrderSummary.scss'
 
 class OrderSummary extends Component {
@@ -12,6 +12,7 @@ class OrderSummary extends Component {
 
         return (
             <div className="order-summary">
+        
                 <h3>Your order</h3>
                 <p>Delicious Burger with following ingredients:</p>
                 <ul className="order-summary__list">

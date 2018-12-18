@@ -2,7 +2,6 @@ import React from 'react';
 import './Burger.scss'
 import BurgerIngredient from './BurgerIngredients/BurgerIngredient'
 
-
 const burger = (props) => {
 
     let ingredients = Object.keys(props.ingredients)
@@ -19,9 +18,6 @@ const burger = (props) => {
     if(ingredients.length ===0 ) {
         ingredients = <p>Please start adding ingredients</p>
     }
-
-    console.log(ingredients);
-
 
     return (
         <div className="Burger">
