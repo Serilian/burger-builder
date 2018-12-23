@@ -103,34 +103,37 @@ class BurgerBuilder extends Component {
     };
 
     purchaseContinueHandler = () => {
-        // alert('You bought delicious burger')
-        this.setState({loading: true});
-        const {ingredients} = this.state;
-        const {totalPrice} = this.state;
-        const order = {
-            ingredients: ingredients,
-            price: totalPrice.toFixed(3),
-            customer: {
-                name: 'Filip',
-                address: 'Test Address',
-                email: 'test@test.com'
-            },
-            delivery: 'ASAP'
-        };
-        axios.post('/orders.json', order)
-            .then(resp => {
-                console.log(resp);
-                this.setState({
-                    purchasing: false,
-                    loading: false
-                })
-            })
-            .catch(err => {
-                this.setState({
-                    purchasing: false,
-                    loading: false
-                })
-            });
+        // // alert('You bought delicious burger')
+        // this.setState({loading: true});
+        // const {ingredients} = this.state;
+        // const {totalPrice} = this.state;
+        // const order = {
+        //     ingredients: ingredients,
+        //     price: totalPrice.toFixed(3),
+        //     customer: {
+        //         name: 'Filip',
+        //         address: 'Test Address',
+        //         email: 'test@test.com'
+        //     },
+        //     delivery: 'ASAP'
+        // };
+        // axios.post('/orders.json', order)
+        //     .then(resp => {
+        //         console.log(resp);
+        //         this.setState({
+        //             purchasing: false,
+        //             loading: false
+        //         })
+        //     })
+        //     .catch(err => {
+        //         this.setState({
+        //             purchasing: false,
+        //             loading: false
+        //         })
+        //     });
+
+        this.props.history.push('/checkout');
+
     };
 
     render() {
@@ -145,7 +148,7 @@ class BurgerBuilder extends Component {
 
         let orderSummary = null;
 
-        let burger = this.state.error ? <p>Ingredients cant be loaded</p> : <Spinner/>
+        let burger = this.state.error ? <p>Ingredients cant be loaded</p> : <Spinner/>;
 
         if (this.state.ingredients) {
             burger = (

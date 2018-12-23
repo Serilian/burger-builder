@@ -10,8 +10,8 @@ const orderSummary = (props) => {
                 <Burger ingredients={props.ingredients}/>
             </div>
             <div className="button-list">
-                <button className='Success' >CONTINUE</button>
-                <button className="Danger" >CANCEL</button>
+                <button onClick={props.onCheckoutContinue} className='Success' >CONTINUE</button>
+                <button onClick={props.onCheckoutCancel} className="Danger" >CANCEL</button>
             </div>
         </div>
     );
