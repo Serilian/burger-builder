@@ -2,7 +2,7 @@ import './CheckoutSummary.scss';
 import React from 'react';
 import  Burger from '../../Burger/Burger'
 
-const orderSummary = (props) => {
+const checkoutSummary = (props) => {
     return (
         <div className="checkout-summary">
             <h1>We hope it tastes great!</h1>
@@ -17,4 +17,4 @@ const orderSummary = (props) => {
     );
 };
 
-export default orderSummary;
+export default checkoutSummary;
